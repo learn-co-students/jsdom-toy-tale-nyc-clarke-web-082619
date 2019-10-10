@@ -25,7 +25,7 @@ function renderToys(){
   })
 }
 
-function addOneToy(event,name, image, likes, id){
+function addOneToy(event,name, image, likes){
   event.preventDefault();
   let configurationObject ={
     method: 'POST',
@@ -52,12 +52,14 @@ function addOneToy(event,name, image, likes, id){
 
 }
 
-function updateToylikes(){
-  console.log(event.target.parentElement.id);
-  let id = event.target.parentElement.id;
-  let likes = parseInt(event.target.previousElementSibling.innerText[0])+1;
-  console.log(event.target.previousElementSibling.innerText[0]);
+function updateToylikes(event){
   
+  let id = event.target.parentElement.id;
+
+  let likes = parseInt(event.target.previousElementSibling.innerText.split(' ')[0]) +1; 
+  console.log(`this is some number: ${likes}`);
+  // debugger;
+  let sibling = event.target.previousElementSibling;
   let configurationObject ={
     method: 'PATCH',
     headers: {
@@ -71,7 +73,10 @@ function updateToylikes(){
   console.log("worked?")
   fetch(`http://localhost:3000/toys/${id}`, configurationObject)
   .then(resp => resp.json)
-  .then(json => event.target.previousElementSibling.innerText = `${likes} likes`);
+  .then(json => {
+    event.target.previousElementSibling.innerText = `${likes} likes`;
+    console.log(json)
+  })
 }
 
 
@@ -99,11 +104,9 @@ document.addEventListener('submit', (event) =>{
 });
 
 document.addEventListener('click', (event) =>{
-  
-
   if (event.target.tagName === "BUTTON" ){
     
-    updateToylikes()
+    updateToylikes(event)
   }
   
 })
