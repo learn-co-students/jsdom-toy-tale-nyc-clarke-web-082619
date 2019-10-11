@@ -32,10 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         image: toy.image,
         likes: toy.likes    
       })    
-    }).then(response => setToy(toy));
-  
-    
-    // debugger;
+    }).then(setToy(toy));
   }
   
   function fetchToys() {
@@ -69,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       formContainer.style.display = 'block';
     } else if (event.target.value === "Create New Toy") {
         formContainer.style.display = 'none';
-        event.preventDefault()
         let name = event.target.parentElement.name.value;
         let image = event.target.parentElement.image.value; 
         let toy = {
@@ -77,10 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
           image: image,
           likes: 0
         }
-        // createNewToy(event, toy);
+        createNewToy(toy);
     } else if (event.target.className === "like-btn") {
-        event.preventDefault();
-        event.stopPropagation();
         let id = event.target.parentElement.id.split("-")[1];
         let likes = parseInt(event.target.parentElement.querySelector(".card-likes").innerText.split(" ")[0]);
         likeToy(event.target.parentElement,id,likes);
