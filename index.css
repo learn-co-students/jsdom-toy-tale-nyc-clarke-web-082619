@@ -38,6 +38,10 @@ body {
   width: auto;
 }
 
+.image {
+  width: 100%;
+}
+
 button {
   position: relative;
   background-color: #e04b52;
