@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 9
     },
     {
       "id": 2,
@@ -46,7 +46,13 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 2
+    },
+    {
+      "name": "Xi Jinping",
+      "image": "https://www.hongkongfp.com/wp-content/uploads/2019/02/POWERPNT_2019-02-24_20-30-44.jpg",
+      "likes": 3,
+      "id": 9
     }
   ]
 }
